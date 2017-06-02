@@ -9,4 +9,37 @@ dataset = pd.read_csv('Google.csv')
 #--> Displaying only the first 5 rows of the Data
 dataset.head(5)
 
+#-->
+a = dataset['High'].max()
+a
+z= dataset.loc[dataset['High']==a]
+z
+print('The maximum High for google was on', z['Date'].item(), 'with the value of', z['High'].item(),'.')
+
+#-->
+b = dataset['Low'].min()
+b
+x= dataset.loc[dataset['Low']==b]
+x
+print('The minimum Low for google was on', x['Date'].item(), 'with the value of', x['Low'].item(),'.')
+
+#--> Rempoving the attribute 'Split Ratio' as it contains ame value in the whole data
+del dataset['Split Ratio']
+
+#-->Data Set without split ratio
+dataset.head(5)
+
+#-->Finding Correlation between all the attributes
+u = dataset.corr()
+u
+
+#--. Correlation with self is replaced by NaN
+rep=u.replace(1, np.nan)
+rep
+
+#--> Correlation Matrix (NEW)
+rep
+
+#--> Maximum correlation of Open value with High value (Same can be done with other attributes as required)
+rep.loc[rep['Open']==rep['Open'].max()]
 
