@@ -43,3 +43,6 @@ rep
 #--> Maximum correlation of Open value with High value (Same can be done with other attributes as required)
 rep.loc[rep['Open']==rep['Open'].max()]
 
+#--> Heatmap of correlation matrix [cmap represents the color combination]
+sns.heatmap(rep,  cmap='ocean_r')
+mlt.show()
